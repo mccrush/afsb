@@ -5,6 +5,7 @@
       d-flex
       justify-content-between
       align-items-start
+      lh-1
     "
   >
     <div class="ms-2 me-auto">

@@ -3,18 +3,18 @@
     <div class="col-12"></div>
     <div class="col-2 pe-0">
       <p class="text-center">Группа</p>
-      <AdminList :arrayItems="groups" />
+      <AdminList :arrayItems="groups" @set-item="setItem" />
     </div>
     <div class="col-2 pe-0">
       <p class="text-center">Подгруппа</p>
-      <AdminList :arrayItems="undergroups" />
+      <AdminList :arrayItems="undergroups" @set-item="setItem" />
     </div>
     <div class="col-2 pe-0">
       <p class="text-center">Организация</p>
-      <AdminList :arrayItems="orgs" />
+      <AdminList :arrayItems="orgs" @set-item="setItem" />
     </div>
     <div class="col-6">
-      <AdminFormMain :formType="formType" />
+      <AdminFormMain v-if="item" :item="item" />
     </div>
   </div>
 </template>
@@ -29,7 +29,9 @@ export default {
     AdminFormMain
   },
   data() {
-    return { formType: 'group' }
+    return {
+      item: null
+    }
   },
   computed: {
     groups() {
@@ -40,6 +42,11 @@ export default {
     },
     orgs() {
       return this.$store.getters.org
+    }
+  },
+  methods: {
+    setItem({ item }) {
+      this.item = item
     }
   }
 }

@@ -13,7 +13,45 @@
         <label for="inputTitle">Название</label>
       </div>
     </div>
+
     <div class="col-12">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="inputGroupId"
+          v-model="item.groupId"
+          @change="saveItem"
+        >
+          <option v-for="group in groups" :key="group.id" :value="group.id">
+            {{ group.title }}
+          </option>
+        </select>
+        <label for="inputGroupId">Группа</label>
+      </div>
+    </div>
+
+    <div class="col-12 mt-3">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="inputUndergroupId"
+          :disabled="!this.item.groupId"
+          v-model="item.undergroupId"
+          @change="saveItem"
+        >
+          <option
+            v-for="undergroup in undergroups"
+            :key="undergroup.id"
+            :value="undergroup.id"
+          >
+            {{ undergroup.title }}
+          </option>
+        </select>
+        <label for="inputUndergroupId">Подгруппа</label>
+      </div>
+    </div>
+
+    <div class="col-12 mt-3">
       <div class="form-floating">
         <select
           class="form-select"
@@ -62,6 +100,16 @@
 export default {
   props: {
     item: Object
+  },
+  computed: {
+    groups() {
+      return this.$store.getters.group
+    },
+    undergroups() {
+      return this.$store.getters.undergroup.filter(
+        item => item.groupId === this.item.groupId
+      )
+    }
   },
   methods: {
     saveItem() {

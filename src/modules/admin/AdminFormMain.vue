@@ -1,34 +1,38 @@
 <template>
   <div>
     <transition name="fade" mode="out-in" appear>
-      <h6>{{ formTytle }}</h6>
+      <h6>{{ formItem.title }}</h6>
     </transition>
 
     <transition name="fade" mode="out-in" appear>
-      <component :is="formComponent" />
+      <component :is="formItem.forma" :item="item" />
     </transition>
   </div>
 </template>
 
 <script>
+import { dataTypes } from './helpers/dataTypes'
 import FormGroup from './forms/FormGroup.vue'
+import FormUndergroup from './forms/FormUndergroup.vue'
+import FormOrg from './forms/FormOrg.vue'
+
 export default {
   components: {
-    FormGroup
+    FormGroup,
+    FormUndergroup,
+    FormOrg
   },
   props: {
-    formType: String
+    item: Object
+  },
+  data() {
+    return {
+      dataTypes
+    }
   },
   computed: {
-    formComponent() {
-      if (this.formType === 'group') {
-        return 'FormGroup'
-      }
-    },
-    formTytle() {
-      if (this.formType === 'group') {
-        return 'Группа'
-      }
+    formItem() {
+      return this.dataTypes.find(item => item.type === this.item.type)
     }
   }
 }

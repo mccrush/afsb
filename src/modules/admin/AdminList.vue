@@ -1,6 +1,11 @@
 <template>
-  <ol class="list-group list-group-numbered">
-    <AdminListItem v-for="item in arrayItems" :key="item.id" :item="item" />
+  <ol class="list-group">
+    <AdminListItem
+      v-for="item in arrayItems"
+      :key="item.id"
+      :item="item"
+      @click="$emit('set-item', { item })"
+    />
   </ol>
 </template>
 
@@ -13,6 +18,7 @@ export default {
   },
   props: {
     arrayItems: Array
-  }
+  },
+  emits: ['set-item']
 }
 </script>
