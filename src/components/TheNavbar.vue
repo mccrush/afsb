@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="#">AFSB</a>
 
       <div>
-        <BtnLogout class="me-2" />
+        <BtnLogout class="me-2" @click="logOut" />
         <button
           class="navbar-toggler"
           type="button"
@@ -37,6 +37,11 @@ import BtnLogout from './../ui/buttons/BtnLogout.vue'
 export default {
   components: {
     BtnLogout
+  },
+  methods: {
+    async logOut() {
+      await this.$store.dispatch('logOut')
+    }
   }
 }
 </script>
