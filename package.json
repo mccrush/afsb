@@ -4,7 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.0",
+    "bootstrap": "^5.2.2",
+    "firebase": "^9.6.0",
+    "vue": "^3.0.0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.3",
+    "vite": "^2.9.15"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "jsxBracketSameLine": true,
+    "arrowParens": "avoid",
+    "trailingComma": "none"
   },
   "keywords": [],
   "author": "",
