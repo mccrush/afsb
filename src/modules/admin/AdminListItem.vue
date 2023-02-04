@@ -7,8 +7,10 @@
       align-items-start
     "
   >
-    <div class="ms-2 me-auto">{{ item.title }}</div>
-    <span class="badge bg-primary rounded-pill">14</span>
+    <div class="ms-2 me-auto">
+      <small>{{ item.title }}</small>
+    </div>
+    <span class="badge bg-primary rounded-pill">{{ amountChilds }}</span>
   </li>
 </template>
 
@@ -16,6 +18,19 @@
 export default {
   props: {
     item: Object
+  },
+  computed: {
+    amountChilds() {
+      if (this.item.type === 'group') {
+        return this.$store.getters.undergroup.filter(
+          item => item.groupId === this.item.id
+        ).length
+      } else if (this.item.type === 'undergroup') {
+        return this.$store.getters.org.filter(
+          item => item.undergroupId === this.item.id
+        ).length
+      }
+    }
   }
 }
 </script>
