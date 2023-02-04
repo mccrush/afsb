@@ -1,16 +1,24 @@
 <template>
   <div>
-    <PageAdmin v-if="currentUserId" />
-    <PageLogin v-else />
+    <TheNavbar />
+    <div class="container-lg">
+      <PageAdmin v-if="currentUserId" />
+      <PageLogin v-else />
+    </div>
   </div>
 </template>
 
 <script>
+import TheNavbar from './components/TheNavbar.vue'
 import PageAdmin from './pages/PageAdmin.vue'
 import PageLogin from './pages/PageLogin.vue'
 
 export default {
-  components: { PageAdmin, PageLogin },
+  components: {
+    TheNavbar,
+    PageAdmin,
+    PageLogin
+  },
   data() {
     return {}
   },

@@ -1,7 +1,8 @@
 <template>
   <div class="row">
+    <div class="col-12"></div>
     <div class="col-2">
-      <AdminList />
+      <AdminList :arrayItems="groups" />
     </div>
     <div class="col-2">
       <AdminList />
@@ -23,6 +24,11 @@ export default {
   components: {
     AdminList,
     AdminFormMain
+  },
+  computed: {
+    groups() {
+      return this.$store.getters.group
+    }
   }
 }
 </script>
