@@ -1,6 +1,7 @@
 <template>
   <li
     class="
+      cursor-pointer
       list-group-item list-group-item-action
       d-flex
       justify-content-between

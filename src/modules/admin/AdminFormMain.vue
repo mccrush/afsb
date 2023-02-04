@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade" mode="out-in" appear>
-      <h6>{{ formItem.title }}</h6>
+      <span>{{ formItem.title }}</span>
     </transition>
 
     <transition name="fade" mode="out-in" appear>

@@ -1,10 +1,10 @@
 <template>
   <div class="row">
-    <div class="col-12">
-      <div class="form-floating mb-3">
+    <div class="col-12 mt-3">
+      <div class="form-floating">
         <input
           type="text"
-          class="form-control"
+          class="form-control form-control-sm"
           id="inputTitle"
           placeholder="Название"
           v-model="item.title"
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="col-12">
+    <div class="col-12 mt-2">
       <div class="form-floating">
         <select
           class="form-select"
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <div class="col-12 mt-3">
+    <div class="col-12 mt-2">
       <div class="form-floating">
         <select
           class="form-select"
@@ -45,11 +45,11 @@
       </div>
     </div>
 
-    <div class="col-12 mt-3">
-      <div class="form-floating mb-3">
+    <div class="col-12 mt-2">
+      <div class="form-floating">
         <input
           type="number"
-          class="form-control"
+          class="form-control form-control-sm"
           id="inputPosition"
           placeholder="Позиция"
           step="1"
@@ -59,10 +59,11 @@
         <label for="inputPosition">Позиция</label>
       </div>
     </div>
-    <div class="col-12">
+
+    <div class="col-12 mt-2">
       <div class="form-floating">
         <textarea
-          class="form-control"
+          class="form-control form-control-sm"
           placeholder="Описание"
           id="inputDescription"
           style="height: 100px"
@@ -82,7 +83,7 @@ export default {
   },
   computed: {
     groups() {
-      this.$store.getters.group
+      return this.$store.getters.group
     }
   },
   methods: {
