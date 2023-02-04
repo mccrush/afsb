@@ -7,12 +7,14 @@
       justify-content-between
       align-items-start
       lh-1
+      ps-1
+      pe-2
     "
   >
     <div class="ms-2 me-auto">
       <small>{{ item.title }}</small>
     </div>
-    <span class="badge bg-primary rounded-pill">{{ amountChilds }}</span>
+    <span class="badge bg-warning">{{ amountChilds }}</span>
   </li>
 </template>
 
