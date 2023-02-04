@@ -1,6 +1,6 @@
 // Класс Основной с общими свойствами
-import getId from './../mrthods/getId'
-import getDateNow from './../mrthods/getDateNow'
+import getId from './../methods/getId'
+import getDateNow from './../methods/getDateNow'
 
 export default class ClassBasic {
   constructor() {

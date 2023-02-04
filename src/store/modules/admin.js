@@ -29,11 +29,11 @@ export default {
     },
   },
   actions: {
-    async removeItem({ commit }, { type, id }) {
+    async removeItem({ commit }, { item }) {
       try {
         commit('updateLoadingStatus', true)
-        commit('removeItem', { type, id })
-        await deleteDoc(doc(db, type, id))
+        commit('removeItem', { type: item.type, id: item.id })
+        await deleteDoc(doc(db, item.type, item.id))
         commit('updateLoadingStatus', false)
         console.log('admin.js: removeItem(): Данные удалены')
       } catch (error) {

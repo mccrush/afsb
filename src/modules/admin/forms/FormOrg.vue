@@ -35,7 +35,7 @@
         <select
           class="form-select"
           id="inputUndergroupId"
-          :disabled="!this.item.groupId"
+          :disabled="!this.item.groupId || !undergroups.length"
           v-model="item.undergroupId"
           @change="saveItem"
         >

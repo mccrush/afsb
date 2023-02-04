@@ -1,10 +1,7 @@
-import ClassBasic from './ClassBasic.js'
+import ClassBasic from './ClassBasic'
 
 export default class ClassOrg extends ClassBasic {
-  constructor(undergroupId = '') {
-    super()
-    this.undergroupId = undergroupId
-  }
-
   type = 'org'
+  groupId = ''
+  undergroupId = ''
 }
