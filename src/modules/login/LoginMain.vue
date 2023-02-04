@@ -26,7 +26,7 @@
     <label for="password">Password</label>
     <div class="input-group">
       <input
-        :type="passType ? 'password' : 'text'"
+        :type="showPass ? 'text' : 'password'"
         class="form-control"
         id="password"
         required
@@ -35,35 +35,13 @@
         maxlength="20"
         @keyup.enter="login"
       />
-
-      <button
-        class="btn btn-light p-0 ps-2 pe-2 border"
-        type="button"
-        @click="passType = !passType"
-      >
-        <img
-          v-if="passType"
-          src="/images/work_icons/eye-slash.svg"
-          width="24"
-          height="24"
-          alt="Show password"
-          class="opacity-06"
-        />
-        <img
-          v-else
-          src="/images/work_icons/eye.svg"
-          width="24"
-          height="24"
-          alt="Hide password"
-          class="opacity-06"
-        />
-      </button>
+      <BtnShowPass v-if="!showPass" @click="showPass = !showPass" />
+      <BtnHidePass v-else @click="showPass = !showPass" />
     </div>
 
-    <button class="btn btn-success w-100 mt-3" @click="login">Войти</button>
-    <button class="btn btn-secondary w-100 mt-2" @click="resetPass">
-      Сбросить пароль
-    </button>
+    <BtnLogin class="w-100 mt-3" @click="login" />
+    <BtnResetPass class="w-100 mt-2" @click="resetPass" />
+
     <transition name="fade" mode="out-in">
       <LoginMessage
         v-if="showMessage"
@@ -76,16 +54,24 @@
 
 <script>
 import LoginMessage from './LoginFormMessage.vue'
+import BtnShowPass from './../../ui/buttons/BtnShowPass.vue'
+import BtnHidePass from './../../ui/buttons/BtnHidePass.vue'
+import BtnLogin from './../../ui/buttons/BtnLogin.vue'
+import BtnResetPass from './../../ui/buttons/BtnResetPass.vue'
 
 export default {
   components: {
-    LoginMessage
+    LoginMessage,
+    BtnShowPass,
+    BtnHidePass,
+    BtnLogin,
+    BtnResetPass
   },
   data() {
     return {
       email: '',
       password: '',
-      passType: true,
+      showPass: false,
       showMessage: false
     }
   },
