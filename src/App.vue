@@ -1,20 +1,22 @@
 <template>
   <div>
-    <TestMsg :msg="msg" />
+    <PageAdmin v-if="currentUserId" />
+    <PageLogin v-else />
   </div>
 </template>
 
 <script>
-import TestMsg from './modules/TestMsg.vue'
+import PageAdmin from './pages/PageAdmin.vue'
+import PageLogin from './pages/PageLogin.vue'
 
 export default {
-  components: { TestMsg },
+  components: { PageAdmin, PageLogin },
   data() {
     return {}
   },
   computed: {
-    msg() {
-      return this.$store.getters.msg
+    currentUserId() {
+      return this.$store.getters.currentUserId
     }
   }
 }

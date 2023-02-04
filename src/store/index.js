@@ -1,8 +1,10 @@
 import { createStore } from 'vuex'
-import msg from './modules/msg'
+import user from './modules/user'
+import loginMessage from './modules/loginMessage'
 
 export default createStore({
   modules: {
-    msg
+    user,
+    loginMessage
   }
 }) 
