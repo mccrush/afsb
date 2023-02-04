@@ -23,11 +23,6 @@ export default {
 </script>
 
 <style>
-body {
-  /* background-color: #f8f9fa; */
-  background-color: #fafbfe;
-}
-
 .btn:focus,
 .btn-close:focus,
 .btn-check:focus + .btn-outline-dark,
