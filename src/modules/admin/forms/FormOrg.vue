@@ -43,6 +43,14 @@
     </div>
 
     <div class="col-12 mt-2">
+      <PhoneMain
+        :phone="item.phone"
+        @add-phone="addPhone"
+        @remove-phone="removePhone"
+      />
+    </div>
+
+    <div class="col-12 mt-2">
       <div class="form-floating">
         <select
           class="form-select"
@@ -124,7 +132,12 @@
 </template>
 
 <script>
+import PhoneMain from './components/phone/PhoneMain.vue'
+
 export default {
+  components: {
+    PhoneMain
+  },
   props: {
     item: Object
   },
@@ -141,6 +154,19 @@ export default {
   methods: {
     saveItem() {
       this.$store.dispatch('updateItem', { item: this.item })
+    },
+    addPhone() {
+      const phone = { id: String(Date.now()), title: 'New Phone', phone: '' }
+
+      if (!this.item.phone) {
+        this.item.phone = []
+      }
+      this.item.phone.push(phone)
+      this.saveItem()
+    },
+    removePhone({ id }) {
+      this.item.phone = this.item.phone.filter(phone => phone.id != id)
+      this.saveItem()
     }
   }
 }
