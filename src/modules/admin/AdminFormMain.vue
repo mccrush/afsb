@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between ps-1 pe-1">
       <transition name="fade" mode="out-in" appear>
-        <span>{{ formItem.title }}</span>
+        <p class="mb-2">{{ formItem.title }}</p>
       </transition>
       <BtnRemoveItem @click="removeItem" />
     </div>

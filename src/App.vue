@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheNavbar />
-    <div class="container-lg">
+    <div class="container-xl">
       <PageAdmin v-if="currentUserId" />
       <PageLogin v-else />
     </div>

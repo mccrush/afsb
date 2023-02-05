@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-12 mt-3">
+    <div class="col-12">
       <div class="form-floating">
         <input
           type="text"

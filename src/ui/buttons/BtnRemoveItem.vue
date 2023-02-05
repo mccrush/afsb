@@ -1,5 +1,5 @@
 <template>
-  <button class="btn btn-sm btn-outline-danger lh-1" title="Удалить">
+  <button class="btn btn-sm btn-outline-danger lh-1 mb-2" title="Удалить">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"

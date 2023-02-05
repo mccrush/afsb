@@ -1,6 +1,6 @@
 <template>
   <button
-    class="btn btn-sm btn-light border lh-1 mb-3 p-0 ps-2 pe-2"
+    class="btn btn-sm btn-light border lh-1 mb-2 p-0 ps-2 pe-2"
     title="Добавить"
   >
     <svg

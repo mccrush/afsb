@@ -1,17 +1,17 @@
 <template>
-  <div class="row pt-3">
+  <div class="row pt-3 pb-3">
     <div class="col-12"></div>
-    <div class="col-2 pe-0">
+    <div class="col-12 col-sm-4 col-md-2 pe-sm-0">
       <div class="d-flex justify-content-between ps-1 pe-1">
-        <p class="text-center">Группа</p>
+        <p class="text-center mb-2">Группа</p>
         <BtnAddItem @click="addItem({ type: 'group' })" />
       </div>
       <AdminList :arrayItems="groups" @set-item="setItem" />
     </div>
 
-    <div class="col-2 pe-0">
+    <div class="col-12 col-sm-4 col-md-2 mt-4 mt-sm-0 pe-sm-0">
       <div class="d-flex justify-content-between ps-1 pe-1">
-        <p class="text-center">Подгруппа</p>
+        <p class="text-center mb-2">Подгруппа</p>
         <BtnAddItem
           @click="addItem({ type: 'undergroup' })"
           :disabled="!groupId"
@@ -20,9 +20,9 @@
       <AdminList :arrayItems="filteredUndergroups" @set-item="setItem" />
     </div>
 
-    <div class="col-2 pe-0">
+    <div class="col-12 col-sm-4 col-md-2 mt-4 mt-sm-0 pe-md-0">
       <div class="d-flex justify-content-between ps-1 pe-1">
-        <p class="text-center">Организация</p>
+        <p class="text-center mb-2">Организация</p>
         <BtnAddItem
           @click="addItem({ type: 'org' })"
           :disabled="!undergroupId"
@@ -30,7 +30,7 @@
       </div>
       <AdminList :arrayItems="filteredOrgs" @set-item="setItem" />
     </div>
-    <div class="col-6">
+    <div class="col-12 col-md-6 mt-4 mt-md-0">
       <AdminFormMain v-if="item" :item="item" @remove-item="removeItem" />
     </div>
   </div>

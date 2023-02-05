@@ -1,7 +1,7 @@
 {
   "name": "afsb",
   "version": "1.0.0",
-  "description": "",
+  "description": "Первый Telegram бот города Славгорода",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
