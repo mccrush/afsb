@@ -7,6 +7,7 @@
         id="inputPhoneTitle"
         placeholder="Отдел"
         v-model="item.title"
+        @blur="$emit('save-phone')"
       />
     </div>
 
@@ -17,6 +18,7 @@
         id="inputPhoneNumber"
         placeholder="Номер телефона"
         v-model="item.phone"
+        @blur="$emit('save-phone')"
       />
     </div>
   </div>
@@ -26,6 +28,7 @@
 export default {
   props: {
     item: Object
-  }
+  },
+  emits: ['save-phone']
 }
 </script>

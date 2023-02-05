@@ -47,6 +47,7 @@
         :phone="item.phone"
         @add-phone="addPhone"
         @remove-phone="removePhone"
+        @save-phone="savePhone"
       />
     </div>
 
@@ -166,6 +167,9 @@ export default {
     },
     removePhone({ id }) {
       this.item.phone = this.item.phone.filter(phone => phone.id != id)
+      this.saveItem()
+    },
+    savePhone() {
       this.saveItem()
     }
   }

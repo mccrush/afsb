@@ -12,7 +12,7 @@
         <div></div>
         <BtnRemoveItem v-if="item" @click="removePhone" />
       </div>
-      <PhoneForm v-if="item" :item="item" />
+      <PhoneForm v-if="item" :item="item" @save-phone="savePhone" />
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
   props: {
     phone: Array
   },
-  emits: ['add-phone', 'remove-phone'],
+  emits: ['add-phone', 'remove-phone', 'save-phone'],
   data() {
     return {
       item: null
@@ -46,6 +46,14 @@ export default {
     },
     removePhone() {
       this.$emit('remove-phone', { id: this.item.id })
+      this.item = null
+    },
+    savePhone() {
+      this.$emit('save-phone')
+    }
+  },
+  watch: {
+    phone() {
       this.item = null
     }
   }
