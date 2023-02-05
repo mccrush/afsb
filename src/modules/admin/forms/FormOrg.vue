@@ -14,6 +14,34 @@
       </div>
     </div>
 
+    <div class="col-12 mt-1">
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="inputAddress"
+          placeholder="Название"
+          v-model="item.address"
+          @blur="saveItem"
+        />
+        <label for="inputAddress">Адрес</label>
+      </div>
+    </div>
+
+    <div class="col-12 mt-1">
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="inputCoordinates"
+          placeholder="Название"
+          v-model="item.coordinates"
+          @blur="saveItem"
+        />
+        <label for="inputCoordinates">Координаты</label>
+      </div>
+    </div>
+
     <div class="col-12 mt-2">
       <div class="form-floating">
         <select
@@ -86,7 +114,6 @@
           class="form-control form-control-sm"
           placeholder="Описание"
           id="inputDescription"
-          style="height: 100px"
           v-model="item.description"
           @blur="saveItem"
         ></textarea>

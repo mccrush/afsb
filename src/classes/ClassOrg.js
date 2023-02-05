@@ -8,4 +8,9 @@ export default class ClassOrg extends ClassBasic {
   }
 
   type = 'org'
+  address = ''
+  coordinates = ''
+  phone = []
+  hours = []
+  schedule = []
 }
