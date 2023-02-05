@@ -2,7 +2,7 @@ import ClassGroup from './../../../classes/ClassGroup'
 import ClassUndergroup from './../../../classes/ClassUndergroup'
 import ClassOrg from './../../../classes/ClassOrg'
 
-export const createItem = ({ type = '' }) => {
+export const createItem = ({ type = '', groupId = '', undergroupId = '' }) => {
   let newItem = {}
 
   switch (type) {
@@ -10,10 +10,10 @@ export const createItem = ({ type = '' }) => {
       newItem = new ClassGroup()
       break
     case 'undergroup':
-      newItem = new ClassUndergroup()
+      newItem = new ClassUndergroup({ groupId })
       break
     case 'org':
-      newItem = new ClassOrg()
+      newItem = new ClassOrg({ groupId, undergroupId })
       break
   }
 

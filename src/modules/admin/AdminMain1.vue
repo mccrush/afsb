@@ -12,17 +12,23 @@
     <div class="col-2 pe-0">
       <div class="d-flex justify-content-between ps-1 pe-1">
         <p class="text-center">Подгруппа</p>
-        <BtnAddItem @click="addItem({ type: 'undergroup' })" />
+        <BtnAddItem
+          @click="addItem({ type: 'undergroup' })"
+          :disabled="!groupId"
+        />
       </div>
-      <AdminList :arrayItems="undergroups" @set-item="setItem" />
+      <AdminList :arrayItems="filteredUndergroups" @set-item="setItem" />
     </div>
 
     <div class="col-2 pe-0">
       <div class="d-flex justify-content-between ps-1 pe-1">
         <p class="text-center">Организация</p>
-        <BtnAddItem @click="addItem({ type: 'org' })" />
+        <BtnAddItem
+          @click="addItem({ type: 'org' })"
+          :disabled="!undergroupId"
+        />
       </div>
-      <AdminList :arrayItems="orgs" @set-item="setItem" />
+      <AdminList :arrayItems="filteredOrgs" @set-item="setItem" />
     </div>
     <div class="col-6">
       <AdminFormMain v-if="item" :item="item" @remove-item="removeItem" />
@@ -46,7 +52,9 @@ export default {
   },
   data() {
     return {
-      item: null
+      item: JSON.parse(localStorage.getItem('sb-item')) || null,
+      groupId: localStorage.getItem('sb-groupId') || '',
+      undergroupId: localStorage.getItem('sb-undergroupId') || ''
     }
   },
   computed: {
@@ -58,14 +66,35 @@ export default {
     },
     orgs() {
       return this.$store.getters.org
+    },
+    filteredUndergroups() {
+      return this.undergroups.filter(item => item.groupId === this.groupId)
+    },
+    filteredOrgs() {
+      return this.orgs.filter(item => item.undergroupId === this.undergroupId)
     }
   },
   methods: {
     setItem({ item }) {
       this.item = item
+
+      if (item.type === 'group') {
+        this.groupId = item.id
+        this.undergroupId = ''
+      } else if (item.type === 'undergroup') {
+        this.undergroupId = item.id
+      }
+
+      localStorage.setItem('sb-item', JSON.stringify(this.item))
+      localStorage.setItem('sb-groupId', this.groupId)
+      localStorage.setItem('sb-undergroupId', this.undergroupId)
     },
     addItem({ type }) {
-      this.item = createItem({ type })
+      this.item = createItem({
+        type,
+        groupId: this.groupId,
+        undergroupId: this.undergroupId
+      })
       this.$store.dispatch('addItem', { item: this.item })
     },
     removeItem({ item }) {
