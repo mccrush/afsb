@@ -1,7 +1,16 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Слава Бот</a>
+      <a class="navbar-brand d-flex align-items-end" href="#">
+        <img
+          src="/images/logo/favicon-32x32.png"
+          alt="Logo"
+          width="32"
+          height="32"
+          class="d-inline-block"
+        />
+        <span class="ms-2">Слава Бот</span>
+      </a>
 
       <div>
         <BtnLogout class="" @click="logOut" />
