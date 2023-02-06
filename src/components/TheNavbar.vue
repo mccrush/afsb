@@ -1,7 +1,11 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-end" href="#">
+      <a
+        class="navbar-brand d-flex align-items-end"
+        href="#"
+        @click="amountClicks"
+      >
         <img
           src="/images/logo/favicon-32x32.png"
           alt="Logo"
@@ -13,7 +17,7 @@
       </a>
 
       <div>
-        <BtnLogout class="" @click="logOut" />
+        <BtnLogout v-if="currentUserId" class="" @click="logOut" />
         <!-- <button
           class="navbar-toggler"
           type="button"
@@ -47,9 +51,17 @@ export default {
   components: {
     BtnLogout
   },
+  computed: {
+    currentUserId() {
+      return this.$store.getters.currentUserId
+    }
+  },
   methods: {
     async logOut() {
       await this.$store.dispatch('logOut')
+    },
+    amountClicks() {
+      this.$store.commit('setCountLogoClick')
     }
   }
 }

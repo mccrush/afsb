@@ -3,7 +3,8 @@
     <TheNavbar />
     <div class="container-xl">
       <PageAdmin v-if="currentUserId" />
-      <PageLogin v-else />
+      <PageLogin v-else-if="countLogoClick >= 7" />
+      <PageInfo v-else />
     </div>
   </div>
 </template>
@@ -11,12 +12,14 @@
 <script>
 import TheNavbar from './components/TheNavbar.vue'
 import PageAdmin from './pages/PageAdmin.vue'
+import PageInfo from './pages/PageInfo.vue'
 import PageLogin from './pages/PageLogin.vue'
 
 export default {
   components: {
     TheNavbar,
     PageAdmin,
+    PageInfo,
     PageLogin
   },
   data() {
@@ -25,6 +28,9 @@ export default {
   computed: {
     currentUserId() {
       return this.$store.getters.currentUserId
+    },
+    countLogoClick() {
+      return this.$store.getters.countLogoClick
     }
   }
 }

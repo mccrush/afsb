@@ -6,17 +6,25 @@ auth.languageCode = 'ru'
 
 export default {
   state: {
-    currentUserId: ''
+    currentUserId: '',
+    countLogoClick: 0
   },
   mutations: {
     setCurrentUserId(state, value) {
       state.currentUserId = value
+    },
+    setCountLogoClick(state) {
+      state.countLogoClick++
+    },
+    resetCountLogoClick(state) {
+      state.countLogoClick = 0
     }
   },
   actions: {
     async logIn({ commit }, { email, password }) {
       try {
         await signInWithEmailAndPassword(auth, email, password)
+        commit('resetCountLogoClick')
       } catch (err) {
         console.error('store user.js logIn(): Ошибка при входе в систему, err:', err)
         throw err
@@ -42,7 +50,8 @@ export default {
     }
   },
   getters: {
-    currentUserId: state => state.currentUserId
+    currentUserId: state => state.currentUserId,
+    countLogoClick: state => state.countLogoClick
   }
 
 }
