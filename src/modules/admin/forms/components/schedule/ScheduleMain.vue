@@ -27,11 +27,8 @@
     <div class="col-5 ps-0">
       <div class="d-flex justify-content-between ps-1 pe-1">
         <div></div>
-        <BtnRemoveItem
-          v-if="item && dayId && !timeId"
-          @click="removeSchedule"
-        />
-        <BtnRemoveItem v-if="item && timeId" @click="removeScheduleTime" />
+        <BtnRemoveItem v-if="dayId && !timeId" @click="removeSchedule" />
+        <BtnRemoveItem v-if="timeId" @click="removeScheduleTime" />
       </div>
       <ScheduleFormDay
         v-if="item && dayId && !timeId"
@@ -86,10 +83,12 @@ export default {
     scheduleTimes() {
       if (this.schedule.length && this.dayId) {
         const sche = this.schedule.find(item => item.id === this.dayId)
-        return sche.schedule
-      } else {
-        return []
+        if (sche) {
+          return sche.schedule
+        }
       }
+
+      return []
     }
   },
   methods: {
@@ -125,7 +124,7 @@ export default {
       this.item = null
     },
     removeSchedule() {
-      this.$emit('remove-schedule', { id: this.item.id })
+      this.$emit('remove-schedule', { id: this.dayId })
       this.item = null
     },
     removeScheduleTime() {
