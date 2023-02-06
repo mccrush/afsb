@@ -7,6 +7,7 @@
       </div>
       <HoursList :arrayItems="hours" @set-hours="setHours" />
     </div>
+
     <div class="col-6 ps-0">
       <div class="d-flex justify-content-between ps-1 pe-1">
         <div></div>

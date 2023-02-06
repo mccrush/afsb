@@ -41,6 +41,7 @@ export default {
       }
     },
     async updateItem({ commit }, { item }) {
+      console.log('store admin.js updateItem() item:', item);
       try {
         commit('updateLoadingStatus', true)
         commit('updateItem', { item })

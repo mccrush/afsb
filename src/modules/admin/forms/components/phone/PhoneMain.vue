@@ -2,7 +2,7 @@
   <div class="row border border-warning rounded-2 ms-0 me-0 pt-2 pb-2">
     <div class="col-6">
       <div class="d-flex justify-content-between ps-1 pe-1">
-        <p class="text-center mb-2">Номера</p>
+        <p class="text-center mb-2">Телефоны</p>
         <BtnAddItem @click="addPhone" />
       </div>
       <PhoneList :arrayItems="phone" @set-phone="setPhone" />

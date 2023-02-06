@@ -61,6 +61,16 @@
     </div>
 
     <div class="col-12 mt-2">
+      <ScheduleMain
+        :schedule="item.schedule"
+        @add-schedule="addSchedule"
+        @remove-schedule="removeSchedule"
+        @save-schedule="saveSchedule"
+        @remove-schedule-time="removeScheduleTime"
+      />
+    </div>
+
+    <div class="col-12 mt-2">
       <div class="form-floating">
         <select
           class="form-select"
@@ -144,11 +154,13 @@
 <script>
 import PhoneMain from './components/phone/PhoneMain.vue'
 import HoursMain from './components/hours/HoursMain.vue'
+import ScheduleMain from './components/schedule/ScheduleMain.vue'
 
 export default {
   components: {
     PhoneMain,
-    HoursMain
+    HoursMain,
+    ScheduleMain
   },
   props: {
     item: Object
@@ -205,6 +217,43 @@ export default {
       this.saveItem()
     },
     saveHours() {
+      this.saveItem()
+    },
+
+    addSchedule() {
+      const schedule = {
+        id: String(Date.now()),
+        title: 'New Day',
+        schedule: [
+          {
+            id: String(Date.now() + 1),
+            title: 'New Time',
+            tstart: '',
+            tend: ''
+          }
+        ]
+      }
+
+      if (!this.item.schedule) {
+        this.item.schedule = []
+      }
+
+      this.item.schedule.push(schedule)
+      this.saveItem()
+    },
+    removeSchedule({ id }) {
+      this.item.schedule = this.item.schedule.filter(
+        schedule => schedule.id != id
+      )
+      this.saveItem()
+    },
+    removeScheduleTime({ id, filteredSсhedule }) {
+      const index = this.item.schedule.findIndex(item => item.id === id)
+
+      this.item.schedule[index].schedule = filteredSсhedule
+      this.saveItem()
+    },
+    saveSchedule() {
       this.saveItem()
     }
   }
