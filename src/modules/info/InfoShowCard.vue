@@ -1,1 +1,1 @@
-<template>Card</template>
+<template><div>Card</div></template>

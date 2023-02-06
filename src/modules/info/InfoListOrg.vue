@@ -1,1 +1,1 @@
-<template>Org</template>
+<template><div>Org</div></template>

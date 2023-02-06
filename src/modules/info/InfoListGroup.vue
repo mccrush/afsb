@@ -1,1 +1,1 @@
-<template>Group</template>
+<template><div>Group</div></template>
