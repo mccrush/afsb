@@ -52,6 +52,15 @@
     </div>
 
     <div class="col-12 mt-2">
+      <HoursMain
+        :hours="item.hours"
+        @add-hours="addHours"
+        @remove-hours="removeHours"
+        @save-hours="saveHours"
+      />
+    </div>
+
+    <div class="col-12 mt-2">
       <div class="form-floating">
         <select
           class="form-select"
@@ -134,10 +143,12 @@
 
 <script>
 import PhoneMain from './components/phone/PhoneMain.vue'
+import HoursMain from './components/hours/HoursMain.vue'
 
 export default {
   components: {
-    PhoneMain
+    PhoneMain,
+    HoursMain
   },
   props: {
     item: Object
@@ -154,6 +165,7 @@ export default {
   },
   methods: {
     saveItem() {
+      localStorage.setItem('sb-item', JSON.stringify(this.item))
       this.$store.dispatch('updateItem', { item: this.item })
     },
     addPhone() {
@@ -170,6 +182,29 @@ export default {
       this.saveItem()
     },
     savePhone() {
+      this.saveItem()
+    },
+
+    addHours() {
+      const hours = {
+        id: String(Date.now()),
+        title: 'New Hours',
+        tstart: '',
+        tend: ''
+      }
+
+      if (!this.item.hours) {
+        this.item.hours = []
+      }
+
+      this.item.hours.push(hours)
+      this.saveItem()
+    },
+    removeHours({ id }) {
+      this.item.hours = this.item.hours.filter(hours => hours.id != id)
+      this.saveItem()
+    },
+    saveHours() {
       this.saveItem()
     }
   }

@@ -1,9 +1,9 @@
 <template>
-  <div class="row">
+  <div class="row border border-warning rounded-2 ms-0 me-0 pt-2 pb-2">
     <div class="col-6">
       <div class="d-flex justify-content-between ps-1 pe-1">
         <p class="text-center mb-2">Номера</p>
-        <BtnAddItem @click="$emit('add-phone')" />
+        <BtnAddItem @click="addPhone" />
       </div>
       <PhoneList :arrayItems="phone" @set-phone="setPhone" />
     </div>
@@ -43,6 +43,10 @@ export default {
   methods: {
     setPhone({ item }) {
       this.item = item
+    },
+    addPhone() {
+      this.$emit('add-phone')
+      this.item = null
     },
     removePhone() {
       this.$emit('remove-phone', { id: this.item.id })
