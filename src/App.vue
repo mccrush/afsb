@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheNavbar />
-    <div class="container-xl">
+    <div class="my-container container-xl">
       <PageAdmin v-if="currentUserId" />
       <PageLogin v-else-if="countLogoClick >= 7" />
       <PageInfo v-else />
@@ -21,9 +21,6 @@ export default {
     PageAdmin,
     PageInfo,
     PageLogin
-  },
-  data() {
-    return {}
   },
   computed: {
     currentUserId() {
