@@ -21,8 +21,8 @@
       />
     </div>
     <div class="card-footer">
-      <code class="text-muted"
-        >Дата обновления: {{ getLocaleDateFromDate(item.dateUpdate) }}</code
+      <small class="text-muted"
+        >Обновлено: {{ getLocaleDateFromDate(item.dateUpdate) }}</small
       >
     </div>
   </div>

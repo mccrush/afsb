@@ -7,7 +7,7 @@
         @click="amountClicks"
       >
         <img
-          src="/images/logo/favicon-32x32.png"
+          src="/images/logo/logo.svg"
           alt="Logo"
           width="32"
           height="32"
