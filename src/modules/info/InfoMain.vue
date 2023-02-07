@@ -45,23 +45,15 @@
 </template>
 
 <script>
-import InfoListGroup from './InfoListGroup.vue'
-import InfoListUndergroup from './InfoListUndergroup.vue'
-import InfoListOrg from './InfoListOrg.vue'
 import InfoList from './InfoList.vue'
 import InfoCard from './InfoCard.vue'
-import InfoShowCard from './InfoShowCard.vue'
 
 import BtnMenu from './interface/BtnMenu.vue'
 
 export default {
   components: {
-    InfoListGroup,
-    InfoListUndergroup,
-    InfoListOrg,
     InfoList,
     InfoCard,
-    InfoShowCard,
     BtnMenu
   },
   data() {
