@@ -1,9 +1,40 @@
 <template>
   <div>
     <div class="row pt-3">
-      <div class="col-4"><BtnMenu title="Группа" @click="showGroups" /></div>
-      <div class="col-4 ps-0"><BtnMenu title="Подгруппа" /></div>
-      <div class="col-4 ps-0"><BtnMenu title="Организация" /></div>
+      <div class="col-4">
+        <BtnMenu
+          class="btn-outline-warning"
+          title="Группы"
+          :class="{
+            active: !groupId
+          }"
+          @click="showGroups"
+        />
+      </div>
+      <div class="col-4 ps-0">
+        <BtnMenu
+          title="Подгруппы"
+          @click="showUndergroups"
+          :class="{
+            'btn-outline-secondary': !groupId,
+            'btn-outline-warning active': groupId && !undergroupId,
+            'btn-outline-warning': undergroupId
+          }"
+          :disabled="!groupId"
+        />
+      </div>
+      <div class="col-4 ps-0">
+        <BtnMenu
+          title="Организации"
+          @click="showOrgs"
+          :class="{
+            'btn-outline-secondary': !undergroupId,
+            'btn-outline-warning active': undergroupId && !orgId,
+            'btn-outline-warning': orgId
+          }"
+          :disabled="!undergroupId"
+        />
+      </div>
     </div>
 
     <transition name="fade" mode="out-in" appear>
@@ -40,7 +71,7 @@ export default {
       groupId: localStorage.getItem('sb-groupId') || '',
       undergroupId: localStorage.getItem('sb-undergroupId') || '',
       orgId: localStorage.getItem('sb-orgId') || '',
-      orgItem: null
+      orgItem: JSON.parse(localStorage.getItem('sb-orgItem')) || null
     }
   },
   computed: {
@@ -95,10 +126,28 @@ export default {
       this.groupId = ''
       this.undergroupId = ''
       this.orgId = ''
+      this.orgItem = null
 
       localStorage.setItem('sb-groupId', this.groupId)
       localStorage.setItem('sb-undergroupId', this.undergroupId)
       localStorage.setItem('sb-orgId', this.orgId)
+      localStorage.setItem('sb-orgItem', JSON.stringify(this.orgItem))
+    },
+    showUndergroups() {
+      this.undergroupId = ''
+      this.orgId = ''
+      this.orgItem = null
+
+      localStorage.setItem('sb-undergroupId', this.undergroupId)
+      localStorage.setItem('sb-orgId', this.orgId)
+      localStorage.setItem('sb-orgItem', JSON.stringify(this.orgItem))
+    },
+    showOrgs() {
+      this.orgId = ''
+      this.orgItem = null
+
+      localStorage.setItem('sb-orgId', this.orgId)
+      localStorage.setItem('sb-orgItem', JSON.stringify(this.orgItem))
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <button class="btn btn-outline-warning w-100" :title="title">
+  <button class="btn w-100" :title="title">
     <span>{{ title }}</span>
   </button>
 </template>
