@@ -4,9 +4,9 @@
       <h5 class="card-title">{{ item.title }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ item.description }}</h6>
 
-      <CardAddress :item="item" />
-      <CardPhone :item="item" />
-      <CardHours :item="item" />
+      <CardAddress v-if="item.address" :item="item" />
+      <CardPhone v-if="item.phone && item.phone.length" :item="item" />
+      <CardHours v-if="item.hours && item.hours.length" :item="item" />
     </div>
     <div class="card-footer">
       <code class="text-muted">Дата обновления: {{ item.dateUpdate }}</code>

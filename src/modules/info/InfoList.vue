@@ -7,8 +7,8 @@
         cursor-pointer
         list-group-item list-group-item-action
         lh-1
-        pt-2
-        pb-2
+        pt-3
+        pb-3
       "
       @click="$emit('set-item', { item })"
     >
