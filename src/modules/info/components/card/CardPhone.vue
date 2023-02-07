@@ -7,14 +7,10 @@
         justify-content-between
         align-items-center
         lh-1
-        p-0
         ps-3
       "
     >
       <div><strong>Телефон</strong></div>
-      <div>
-        <BtnCopy />
-      </div>
     </li>
     <li
       v-for="phone in item.phone"
@@ -31,7 +27,9 @@
     >
       <div class="w-40">{{ phone.title }}</div>
       <div>{{ phone.phone }}</div>
-      <div><BtnCopy /></div>
+      <div>
+        <BtnCopy @click="$emit('copy-in-bufer', { text: phone.phone })" />
+      </div>
     </li>
   </ul>
 </template>
@@ -45,7 +43,8 @@ export default {
   },
   props: {
     item: Object
-  }
+  },
+  emits: ['copy-in-bufer']
 }
 </script>
 

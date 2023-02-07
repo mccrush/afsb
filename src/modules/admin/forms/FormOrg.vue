@@ -152,6 +152,8 @@
 </template>
 
 <script>
+import getDateNow from './../../../methods/getDateNow'
+
 import PhoneMain from './components/phone/PhoneMain.vue'
 import HoursMain from './components/hours/HoursMain.vue'
 import ScheduleMain from './components/schedule/ScheduleMain.vue'
@@ -173,10 +175,15 @@ export default {
       return this.$store.getters.undergroup.filter(
         item => item.groupId === this.item.groupId
       )
+    },
+    currentUserId() {
+      return this.$store.getters.currentUserId
     }
   },
   methods: {
     saveItem() {
+      this.item.dateUpdate = getDateNow()
+      this.item.authorUpdateId = this.currentUserId
       localStorage.setItem('sb-item', JSON.stringify(this.item))
       this.$store.dispatch('updateItem', { item: this.item })
     },

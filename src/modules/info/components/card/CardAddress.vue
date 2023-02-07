@@ -14,7 +14,7 @@
       <div><strong>Адрес</strong></div>
       <div>{{ item.coordinates }}</div>
       <div>
-        <BtnCopy />
+        <BtnCopy @click="$emit('copy-in-bufer', { text: item.coordinates })" />
       </div>
     </li>
     <li
@@ -29,7 +29,9 @@
       "
     >
       <div>{{ item.address }}</div>
-      <div><BtnCopy /></div>
+      <div>
+        <BtnCopy @click="$emit('copy-in-bufer', { text: item.address })" />
+      </div>
     </li>
   </ul>
 </template>
@@ -43,6 +45,7 @@ export default {
   },
   props: {
     item: Object
-  }
+  },
+  emits: ['copy-in-bufer']
 }
 </script>
