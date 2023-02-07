@@ -13,6 +13,13 @@
     >
       <div><strong>Адрес</strong></div>
       <div>{{ item.coordinates }}</div>
+      <a
+        :href="getLink(item.coordinates)"
+        target="_blank"
+        class="btn ms-2"
+        title="Открыть на Яндекс карте"
+        >На карте</a
+      >
       <div>
         <BtnCopy @click="$emit('copy-in-bufer', { text: item.coordinates })" />
       </div>
@@ -46,6 +53,24 @@ export default {
   props: {
     item: Object
   },
-  emits: ['copy-in-bufer']
+  emits: ['copy-in-bufer'],
+  methods: {
+    getLink(coordinates) {
+      const coor1 = coordinates.split(',')[0]
+      const coor2 = coordinates.split(',')[1]
+      const link =
+        'https://yandex.ru/maps/11252/slavgorod/?ll=' +
+        coor2 +
+        '%2C' +
+        coor1 +
+        '&mode=whatshere&whatshere%5Bpoint%5D=' +
+        coor2 +
+        '%2C' +
+        coor1 +
+        '&whatshere%5Bzoom%5D=18&z=18'
+
+      return link
+    }
+  }
 }
 </script>
