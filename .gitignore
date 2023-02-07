@@ -1,4 +1,6 @@
 /node_modules
+/dist
+firebase-debug.log
 
 # local env files
 .env.local
