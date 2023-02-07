@@ -20,13 +20,13 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log('main.js : Пользователь авторизован')
     store.commit('setCurrentUserId', user.uid)
-
-    store.dispatch('getItems', { type: 'group' })
-    store.dispatch('getItems', { type: 'undergroup' })
-    store.dispatch('getItems', { type: 'org' })
   } else {
     console.log('main.js : Пользователь НЕ авторизован')
     store.commit('setCurrentUserId', '')
   }
+
+  store.dispatch('getItems', { type: 'group' })
+  store.dispatch('getItems', { type: 'undergroup' })
+  store.dispatch('getItems', { type: 'org' })
 
 })
