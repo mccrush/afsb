@@ -4,7 +4,7 @@
       <div class="col-4">
         <BtnMenu
           class="btn-outline-warning"
-          title="Группы"
+          :title="groupTitle"
           :class="{
             active: !groupId
           }"
@@ -13,7 +13,7 @@
       </div>
       <div class="col-4 ps-0">
         <BtnMenu
-          title="Подгруппы"
+          :title="undergroupTitle"
           @click="showUndergroups"
           :class="{
             'btn-outline-secondary': !groupId,
@@ -38,12 +38,8 @@
     </div>
 
     <transition name="fade" mode="out-in" appear>
-      <component
-        :is="infoList"
-        :arrayItems="infoArray"
-        @set-item="setItem"
-        :item="orgItem"
-      />
+      <InfoCard v-if="orgId" :item="orgItem" />
+      <InfoList v-else :arrayItems="infoArray" @set-item="setItem" />
     </transition>
   </div>
 </template>
@@ -53,6 +49,7 @@ import InfoListGroup from './InfoListGroup.vue'
 import InfoListUndergroup from './InfoListUndergroup.vue'
 import InfoListOrg from './InfoListOrg.vue'
 import InfoList from './InfoList.vue'
+import InfoCard from './InfoCard.vue'
 import InfoShowCard from './InfoShowCard.vue'
 
 import BtnMenu from './interface/BtnMenu.vue'
@@ -63,6 +60,7 @@ export default {
     InfoListUndergroup,
     InfoListOrg,
     InfoList,
+    InfoCard,
     InfoShowCard,
     BtnMenu
   },
@@ -91,13 +89,6 @@ export default {
     filteredOrgs() {
       return this.orgs.filter(item => item.undergroupId === this.undergroupId)
     },
-    infoList() {
-      if (this.orgId) {
-        return 'InfoShowCard'
-      } else {
-        return 'InfoList'
-      }
-    },
     infoArray() {
       if (this.undergroupId) {
         return this.filteredOrgs
@@ -106,6 +97,20 @@ export default {
       } else {
         return this.groups
       }
+    },
+    groupTitle() {
+      if (this.groupId) {
+        return this.groups.find(item => item.id === this.groupId).title
+      }
+      return 'Группы'
+    },
+    undergroupTitle() {
+      if (this.undergroupId) {
+        return this.filteredUndergroups.find(
+          item => item.id === this.undergroupId
+        ).title
+      }
+      return 'Подгруппы'
     }
   },
   methods: {

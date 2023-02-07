@@ -13,4 +13,6 @@ export default class ClassOrg extends ClassBasic {
   phone = []
   hours = []
   schedule = []
+  dateUpdate = ''
+  authorUpdateId = ''
 }

@@ -1,13 +1,18 @@
 <template>
   <button class="btn w-100" :title="title">
-    <span>{{ title }}</span>
+    <div>{{ title }}</div>
+    <!-- <div class="mt-1">{{ subTitle }}</div> -->
   </button>
 </template>
 
 <script>
 export default {
   props: {
-    title: String
+    title: String,
+    subTitle: {
+      type: String,
+      default: '---'
+    }
   }
 }
 </script>
