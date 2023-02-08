@@ -12,15 +12,9 @@
       "
     >
       <div><strong>Адрес</strong></div>
-      <div>{{ item.coordinates }}</div>
-      <a
-        :href="getLink(item.coordinates)"
-        target="_blank"
-        class="btn ms-2"
-        title="Открыть на Яндекс карте"
-        >На карте</a
-      >
-      <div>
+      <div class="d-flex align-items-center">
+        <div class="me-2">{{ item.coordinates }}</div>
+        <BtnMap :href="getLink(item.coordinates)" />
         <BtnCopy @click="$emit('copy-in-bufer', { text: item.coordinates })" />
       </div>
     </li>
@@ -44,10 +38,12 @@
 </template>
 
 <script>
+import BtnMap from './../interface/BtnMap.vue'
 import BtnCopy from './../interface/BtnCopy.vue'
 
 export default {
   components: {
+    BtnMap,
     BtnCopy
   },
   props: {

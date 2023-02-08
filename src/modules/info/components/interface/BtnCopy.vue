@@ -1,33 +1,16 @@
 <template>
-  <button class="btn btn-sm btn-light" title="Копировать в буфер">
+  <button class="btn btn-light" title="Копировать в буфер">
     <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="16"
+      height="16"
+      fill="currentColor"
+      class="bi bi-files"
+      viewBox="0 0 16 16"
     >
-      <rect width="24" height="24" stroke="none" fill="#000000" opacity="0" />
-
-      <g transform="matrix(1 0 0 1 12 12)">
-        <path
-          style="
-            stroke: none;
-            stroke-width: 1;
-            stroke-dasharray: none;
-            stroke-linecap: butt;
-            stroke-dashoffset: 0;
-            stroke-linejoin: miter;
-            stroke-miterlimit: 4;
-            fill: rgb(0, 0, 0);
-            fill-rule: nonzero;
-            opacity: 1;
-          "
-          transform=" translate(-12, -12)"
-          d="M 4 2 C 2.895 2 2 2.895 2 4 L 2 17 C 2 17.552 2.448 18 3 18 C 3.552 18 4 17.552 4 17 L 4 4 L 17 4 C 17.552 4 18 3.552 18 3 C 18 2.448 17.552 2 17 2 L 4 2 z M 8 6 C 6.895 6 6 6.895 6 8 L 6 20 C 6 21.105 6.895 22 8 22 L 20 22 C 21.105 22 22 21.105 22 20 L 22 8 C 22 6.895 21.105 6 20 6 L 8 6 z M 8 8 L 20 8 L 20 20 L 8 20 L 8 8 z"
-          stroke-linecap="round"
-        />
-      </g>
+      <path
+        d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"
+      />
     </svg>
   </button>
 </template>
