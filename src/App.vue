@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheNavbar />
-    <div class="my-container container-xl">
+    <div class="my-container container">
       <PageAdmin v-if="currentUserId" />
       <PageLogin v-else-if="countLogoClick >= 7" />
       <PageInfo v-else />
@@ -34,6 +34,10 @@ export default {
 </script>
 
 <style>
+.my-container {
+  max-width: 420px;
+}
+
 .btn:focus,
 .btn-close:focus,
 .btn-check:focus + .btn-outline-dark,

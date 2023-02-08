@@ -18,6 +18,7 @@
 
       <div>
         <BtnLogout v-if="currentUserId" class="" @click="logOut" />
+        <BtnAbout v-else data-bs-toggle="modal" data-bs-target="#modalAbout" />
         <!-- <button
           class="navbar-toggler"
           type="button"
@@ -42,14 +43,21 @@
         </ul>
       </div> -->
     </div>
+    <TheModalAbout id="modalAbout" />
   </nav>
 </template>
 
 <script>
 import BtnLogout from './../ui/buttons/BtnLogout.vue'
+import BtnAbout from './../ui/buttons/BtnAbout.vue'
+
+import TheModalAbout from './TheModalAbout.vue'
+
 export default {
   components: {
-    BtnLogout
+    BtnLogout,
+    BtnAbout,
+    TheModalAbout
   },
   computed: {
     currentUserId() {

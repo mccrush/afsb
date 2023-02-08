@@ -23,7 +23,7 @@
       :key="hours.title"
       class="list-group-item d-flex align-items-center lh-1 ps-3"
     >
-      <div class="w-40">{{ hours.title }}</div>
+      <div class="w-30">{{ hours.title }}</div>
 
       <div v-if="hours.tstart" class="d-flex align-items-center">
         <div class="text-muted">с&nbsp;</div>
@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style scoped>
-.w-40 {
-  width: 40%;
+.w-30 {
+  width: 30%;
 }
 </style>

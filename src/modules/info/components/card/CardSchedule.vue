@@ -35,7 +35,7 @@
           :key="sche.title"
           class="list-group-item d-flex align-items-center lh-1 ps-3"
         >
-          <div class="w-40">{{ sche.title }}</div>
+          <div class="w-30">{{ sche.title }}</div>
 
           <div class="d-flex align-items-center">
             <div class="text-muted">с&nbsp;</div>
@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style scoped>
-.w-40 {
-  width: 40%;
+.w-30 {
+  width: 30%;
 }
 </style>

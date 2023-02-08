@@ -25,7 +25,7 @@
         ps-3
       "
     >
-      <div class="w-40">{{ phone.title }}</div>
+      <div class="w-30">{{ phone.title }}</div>
       <div class="d-flex align-items-center">
         <div class="me-2">{{ phone.phone }}</div>
         <BtnCall :href="'tel:+' + phone.phone" />
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style scoped>
-.w-40 {
-  width: 40%;
+.w-30 {
+  width: 30%;
 }
 </style>
