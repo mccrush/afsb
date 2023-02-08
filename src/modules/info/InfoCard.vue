@@ -2,7 +2,7 @@
   <div class="card bg-light bg-gradient shadow border-0 mt-3 mb-3">
     <div class="card-body">
       <h5 class="card-title">{{ item.title }}</h5>
-      <h6 class="card-subtitle mb-2 text-warning">{{ item.description }}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">{{ item.description }}</h6>
 
       <CardAddress
         v-if="item.address"
@@ -30,10 +30,15 @@
         >Обновлено: {{ getLocaleDateFromDate(item.dateUpdate) }}</small
       >
     </div>
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <ToastCopy id="liveToast" data-bs-config='{"delay":2000}' />
+    </div>
   </div>
 </template>
 
 <script>
+import { Toast } from 'bootstrap'
+
 import { getLocaleDateFromDate } from './../../methods/getLocaleDateFromDate'
 import { copyTextInBufer } from './../../methods/copyTextInBufer'
 
@@ -42,12 +47,15 @@ import CardPhone from './components/card/CardPhone.vue'
 import CardHours from './components/card/CardHours.vue'
 import CardSchedule from './components/card/CardSchedule.vue'
 
+import ToastCopy from './components/interface/ToastCopy.vue'
+
 export default {
   components: {
     CardAddress,
     CardPhone,
     CardHours,
-    CardSchedule
+    CardSchedule,
+    ToastCopy
   },
   props: {
     item: Object
@@ -56,6 +64,13 @@ export default {
     getLocaleDateFromDate,
     copyInBufer({ text }) {
       copyTextInBufer(text)
+      this.showToast()
+    },
+    showToast() {
+      const toastLiveExample = document.getElementById('liveToast')
+      const toast = new Toast(toastLiveExample)
+
+      toast.show()
     }
   }
 }
