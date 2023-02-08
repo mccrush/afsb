@@ -2,7 +2,7 @@
   <div class="card bg-light bg-gradient shadow border-0 mt-3 mb-3">
     <div class="card-body">
       <h5 class="card-title">{{ item.title }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{ item.description }}</h6>
+      <h6 class="card-subtitle mb-2 text-warning">{{ item.description }}</h6>
 
       <CardAddress
         v-if="item.address"
@@ -16,6 +16,11 @@
       />
       <CardHours
         v-if="item.hours && item.hours.length"
+        :item="item"
+        @copy-in-bufer="copyInBufer"
+      />
+      <CardSchedule
+        v-if="item.schedule && item.schedule.length"
         :item="item"
         @copy-in-bufer="copyInBufer"
       />
@@ -35,12 +40,14 @@ import { copyTextInBufer } from './../../methods/copyTextInBufer'
 import CardAddress from './components/card/CardAddress.vue'
 import CardPhone from './components/card/CardPhone.vue'
 import CardHours from './components/card/CardHours.vue'
+import CardSchedule from './components/card/CardSchedule.vue'
 
 export default {
   components: {
     CardAddress,
     CardPhone,
-    CardHours
+    CardHours,
+    CardSchedule
   },
   props: {
     item: Object
