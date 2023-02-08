@@ -26,8 +26,9 @@
       "
     >
       <div class="w-40">{{ phone.title }}</div>
-      <div>{{ phone.phone }}</div>
-      <div>
+      <div class="d-flex align-items-center">
+        <div class="me-2">{{ phone.phone }}</div>
+        <BtnCall :href="'tel:+' + phone.phone" />
         <BtnCopy @click="$emit('copy-in-bufer', { text: phone.phone })" />
       </div>
     </li>
@@ -35,10 +36,12 @@
 </template>
 
 <script>
+import BtnCall from './../interface/BtnCall.vue'
 import BtnCopy from './../interface/BtnCopy.vue'
 
 export default {
   components: {
+    BtnCall,
     BtnCopy
   },
   props: {

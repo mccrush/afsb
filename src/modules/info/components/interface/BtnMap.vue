@@ -1,5 +1,9 @@
 <template>
-  <a target="_blank" class="btn btn-light ms-2" title="Открыть на Яндекс карте">
+  <a
+    target="_blank"
+    class="btn btn-light text-danger ms-2"
+    title="Открыть на Яндекс карте"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
