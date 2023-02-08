@@ -13,7 +13,9 @@
     >
       <div><strong>Режим работы</strong></div>
       <div>
-        <BtnCopy />
+        <BtnCopy
+          @click="$emit('copy-in-bufer', { text: formatMessage(item.hours) })"
+        />
       </div>
     </li>
     <li
@@ -43,6 +45,20 @@ export default {
   },
   props: {
     item: Object
+  },
+  emits: ['copy-in-bufer'],
+  methods: {
+    formatMessage(hours) {
+      let fullMsg = 'Режим работы ' + this.item.title + ':\n'
+      hours.forEach(el => {
+        if (el.tstart) {
+          fullMsg += el.title + ' c ' + el.tstart + ' до ' + el.tend + '\n'
+        } else {
+          fullMsg += el.title + ' выходной'
+        }
+      })
+      return fullMsg
+    }
   }
 }
 </script>

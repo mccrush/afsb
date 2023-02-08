@@ -21,7 +21,13 @@
         >
           <div>{{ block.title }}</div>
           <div>
-            <BtnCopy />
+            <BtnCopy
+              @click="
+                $emit('copy-in-bufer', {
+                  text: formatMessage(block.schedule, block.title)
+                })
+              "
+            />
           </div>
         </li>
         <li
@@ -52,6 +58,20 @@ export default {
   },
   props: {
     item: Object
+  },
+  emits: ['copy-in-bufer'],
+  methods: {
+    formatMessage(hours, day) {
+      let fullMsg = 'Режим работы ' + this.item.title + ' в ' + day + ':\n'
+      hours.forEach(el => {
+        if (el.tstart) {
+          fullMsg += el.title + ' c ' + el.tstart + ' до ' + el.tend + '\n'
+        } else {
+          fullMsg += el.title + ' выходной'
+        }
+      })
+      return fullMsg
+    }
   }
 }
 </script>
