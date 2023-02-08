@@ -1,6 +1,6 @@
 <template>
-  <div class="card bg-light bg-gradient shadow border-0 mt-3 mb-3">
-    <div class="card-body">
+  <div class="card border-0 mt-3 mb-3">
+    <div class="card-body p-0">
       <h5 class="card-title">{{ item.title }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ item.description }}</h6>
 
@@ -25,7 +25,7 @@
         @copy-in-bufer="copyInBufer"
       />
     </div>
-    <div class="card-footer">
+    <div class="card-footer rounded-3 border-0 mt-2">
       <small class="text-muted"
         >Обновлено: {{ getLocaleDateFromDate(item.dateUpdate) }}</small
       >
