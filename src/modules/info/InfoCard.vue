@@ -2,7 +2,9 @@
   <div class="card border-0 mt-3 mb-3">
     <div class="card-body p-0">
       <h5 class="card-title">{{ item.title }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{ item.description }}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">
+        <pre>{{ item.description }}</pre>
+      </h6>
 
       <CardAddress
         v-if="item.address"
