@@ -37,7 +37,18 @@
         >
           <div class="w-30">{{ sche.title }}</div>
 
-          <div class="d-flex align-items-center">
+          <div
+            v-if="item.undergroupId === '1675528208968'"
+            class="d-flex align-items-center"
+          >
+            <div>{{ sche.tstart }}</div>
+            <div class="text-muted">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <div>{{ sche.tend }}</div>
+          </div>
+
+          <div v-else class="d-flex align-items-center">
             <div class="text-muted">с&nbsp;</div>
             <div>{{ sche.tstart }}</div>
             <div class="text-muted">&nbsp;до&nbsp;</div>
