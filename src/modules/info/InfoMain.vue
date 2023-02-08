@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="my-container m-auto">
     <div class="row pt-3">
       <div class="col-4">
         <BtnMenu
@@ -149,3 +149,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.my-container {
+  max-width: 420px;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div
     class="
-      col-10 col-md-4 col-xl-4 col-xxl-2
+      col-12 col-sm-10 col-md-6 col-xl-4
       m-auto
       rounded-4
       bg-white
