@@ -89,6 +89,6 @@ export default {
 
 <style scoped>
 .w-30 {
-  width: 30%;
+  width: 40%;
 }
 </style>

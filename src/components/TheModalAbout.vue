@@ -45,7 +45,11 @@
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
+          <button
+            type="button"
+            class="btn btn-warning m-auto"
+            data-bs-dismiss="modal"
+          >
             Мне все понятно. Спасибо за информацию
           </button>
         </div>

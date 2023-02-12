@@ -6,7 +6,10 @@
         <p class="text-center mb-2">Группа</p>
         <BtnAddItem @click="addItem({ type: 'group' })" />
       </div>
-      <AdminList :arrayItems="groups" @set-item="setItem" />
+      <AdminList
+        :arrayItems="sortMethod(groups, 'asc', 'position')"
+        @set-item="setItem"
+      />
     </div>
 
     <div class="col-12 col-sm-4 col-md-2 mt-4 mt-sm-0 pe-sm-0">
@@ -17,7 +20,10 @@
           :disabled="!groupId"
         />
       </div>
-      <AdminList :arrayItems="filteredUndergroups" @set-item="setItem" />
+      <AdminList
+        :arrayItems="sortMethod(filteredUndergroups, 'asc', 'position')"
+        @set-item="setItem"
+      />
     </div>
 
     <div class="col-12 col-sm-4 col-md-2 mt-4 mt-sm-0 pe-md-0">
@@ -28,7 +34,10 @@
           :disabled="!undergroupId"
         />
       </div>
-      <AdminList :arrayItems="filteredOrgs" @set-item="setItem" />
+      <AdminList
+        :arrayItems="sortMethod(filteredOrgs, 'asc', 'position')"
+        @set-item="setItem"
+      />
     </div>
     <div class="col-12 col-md-6 mt-4 mt-md-0">
       <AdminFormMain v-if="item" :item="item" @remove-item="removeItem" />
@@ -37,6 +46,7 @@
 </template>
 
 <script>
+import sortMethod from './../../methods/sortMethod'
 import { createItem } from './helpers/createItem'
 
 import AdminList from './AdminList.vue'
@@ -75,6 +85,7 @@ export default {
     }
   },
   methods: {
+    sortMethod,
     setItem({ item }) {
       this.item = item
 

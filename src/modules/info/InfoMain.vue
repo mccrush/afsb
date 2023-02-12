@@ -39,12 +39,14 @@
 
     <transition name="fade" mode="out-in" appear>
       <InfoCard v-if="orgId" :item="orgItem" />
-      <InfoList v-else :arrayItems="infoArray" @set-item="setItem" />
+      <InfoList v-else :arrayItems="sortArray" @set-item="setItem" />
     </transition>
   </div>
 </template>
 
 <script>
+import sortMethod from './../../methods/sortMethod'
+
 import InfoList from './InfoList.vue'
 import InfoCard from './InfoCard.vue'
 
@@ -89,6 +91,9 @@ export default {
       } else {
         return this.groups
       }
+    },
+    sortArray() {
+      return sortMethod(this.infoArray, 'asc', 'position')
     },
     groupTitle() {
       if (this.groupId) {
