@@ -51,7 +51,7 @@
           <div v-else class="d-flex align-items-center">
             <div class="text-muted">с&nbsp;</div>
             <div>{{ sche.tstart }}</div>
-            <div class="text-muted">&nbsp;до&nbsp;</div>
+            <div v-if="sche.tend" class="text-muted">&nbsp;до&nbsp;</div>
             <div>{{ sche.tend }}</div>
           </div>
         </li>
