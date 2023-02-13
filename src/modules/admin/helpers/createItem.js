@@ -1,6 +1,7 @@
 import ClassGroup from './../../../classes/ClassGroup'
 import ClassUndergroup from './../../../classes/ClassUndergroup'
 import ClassOrg from './../../../classes/ClassOrg'
+import ClassSponsor from './../../../classes/ClassSponsor'
 
 export const createItem = ({ type = '', groupId = '', undergroupId = '' }) => {
   let newItem = {}
@@ -14,6 +15,9 @@ export const createItem = ({ type = '', groupId = '', undergroupId = '' }) => {
       break
     case 'org':
       newItem = new ClassOrg({ groupId, undergroupId })
+      break
+    case 'sponsor':
+      newItem = new ClassSponsor()
       break
   }
 

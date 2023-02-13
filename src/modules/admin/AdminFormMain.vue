@@ -18,6 +18,7 @@ import { dataTypes } from './helpers/dataTypes'
 import FormGroup from './forms/FormGroup.vue'
 import FormUndergroup from './forms/FormUndergroup.vue'
 import FormOrg from './forms/FormOrg.vue'
+import FormSponsor from './forms/FormSponsor.vue'
 
 import BtnRemoveItem from './../../ui/buttons/BtnRemoveItem.vue'
 
@@ -26,6 +27,7 @@ export default {
     FormGroup,
     FormUndergroup,
     FormOrg,
+    FormSponsor,
     BtnRemoveItem
   },
   props: {
