@@ -1,6 +1,6 @@
 {
   "name": "afsb",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "dateUpdate": "13.02.2023",
   "description": "Первый Telegram бот города Славгорода",
   "main": "index.js",
