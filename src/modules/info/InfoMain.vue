@@ -41,6 +41,8 @@
       <InfoCard v-if="orgId" :item="orgItem" />
       <InfoList v-else :arrayItems="sortArray" @set-item="setItem" />
     </transition>
+
+    <TheSponsors v-if="!groupId" />
   </div>
 </template>
 
@@ -51,12 +53,14 @@ import InfoList from './InfoList.vue'
 import InfoCard from './InfoCard.vue'
 
 import BtnMenu from './interface/BtnMenu.vue'
+import TheSponsors from './../../components/TheSponsors.vue'
 
 export default {
   components: {
     InfoList,
     InfoCard,
-    BtnMenu
+    BtnMenu,
+    TheSponsors
   },
   data() {
     return {

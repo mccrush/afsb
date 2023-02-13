@@ -6,15 +6,11 @@
       <PageLogin v-else-if="countLogoClick >= 7" />
       <PageInfo v-else />
     </div>
-    <div class="container">
-      <TheSponsors />
-    </div>
   </div>
 </template>
 
 <script>
 import TheNavbar from './components/TheNavbar.vue'
-import TheSponsors from './components/TheSponsors.vue'
 import PageAdmin from './pages/PageAdmin.vue'
 import PageInfo from './pages/PageInfo.vue'
 import PageLogin from './pages/PageLogin.vue'
@@ -22,7 +18,6 @@ import PageLogin from './pages/PageLogin.vue'
 export default {
   components: {
     TheNavbar,
-    TheSponsors,
     PageAdmin,
     PageInfo,
     PageLogin

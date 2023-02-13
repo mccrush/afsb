@@ -7,7 +7,8 @@ export default {
     loading: false,
     group: [],
     undergroup: [],
-    org: []
+    org: [],
+    sponsor: []
   },
   mutations: {
     removeItem(state, { type, id }) {
@@ -80,6 +81,7 @@ export default {
     loading: state => state.loading,
     group: state => state.group,
     undergroup: state => state.undergroup,
-    org: state => state.org
+    org: state => state.org,
+    sponsor: state => state.sponsor
   }
 }

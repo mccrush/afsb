@@ -28,5 +28,6 @@ onAuthStateChanged(auth, (user) => {
   store.dispatch('getItems', { type: 'group' })
   store.dispatch('getItems', { type: 'undergroup' })
   store.dispatch('getItems', { type: 'org' })
+  store.dispatch('getItems', { type: 'sponsor' })
 
 })

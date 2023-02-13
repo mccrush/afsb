@@ -14,7 +14,35 @@
       </div>
     </div>
 
-    <!-- Поле ссылки и поле загрузки изображения логотипа -->
+    <div class="col-12 mt-2">
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="inputLink"
+          placeholder="Ссылка"
+          v-model="item.link"
+          @blur="saveItem"
+        />
+        <label for="inputLink">Ссылка</label>
+      </div>
+    </div>
+
+    <div class="col-12 mt-2">
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="inputImage"
+          placeholder="Имя файла изображения"
+          v-model="item.image"
+          @blur="saveItem"
+        />
+        <label for="inputImage">Имя файла изображения</label>
+      </div>
+    </div>
+
+    <!-- Поле ссылки, imagename -->
 
     <div class="col-12 mt-2">
       <div class="form-floating">
