@@ -35,16 +35,24 @@
             lh-1
             w-25
           "
+          data-bs-toggle="modal"
+          data-bs-target="#modalSponsor"
         >
           Стать спонсором
         </button>
       </div>
     </div>
+    <TheModalSponsor id="modalSponsor" />
   </div>
 </template>
 
-  <script>
+<script>
+import TheModalSponsor from './TheModalSponsor.vue'
+
 export default {
+  components: {
+    TheModalSponsor
+  },
   computed: {
     sponsors() {
       return this.$store.getters.sponsor

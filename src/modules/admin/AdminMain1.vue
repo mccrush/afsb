@@ -6,10 +6,7 @@
         <p class="text-center mb-2">Группа</p>
         <BtnAddItem @click="addItem({ type: 'group' })" />
       </div>
-      <AdminList
-        :arrayItems="sortMethod(groups, 'asc', 'position')"
-        @set-item="setItem"
-      />
+      <AdminList :arrayItems="groups" @set-item="setItem" />
     </div>
 
     <div class="col-12 col-sm-4 col-md-2 mt-4 mt-sm-0 pe-sm-0">
@@ -20,10 +17,7 @@
           :disabled="!groupId"
         />
       </div>
-      <AdminList
-        :arrayItems="sortMethod(filteredUndergroups, 'asc', 'position')"
-        @set-item="setItem"
-      />
+      <AdminList :arrayItems="filteredUndergroups" @set-item="setItem" />
     </div>
 
     <div class="col-12 col-sm-4 col-md-2 mt-4 mt-sm-0 pe-md-0">
@@ -34,10 +28,7 @@
           :disabled="!undergroupId"
         />
       </div>
-      <AdminList
-        :arrayItems="sortMethod(filteredOrgs, 'asc', 'position')"
-        @set-item="setItem"
-      />
+      <AdminList :arrayItems="filteredOrgs" @set-item="setItem" />
     </div>
     <div class="col-12 col-md-6 mt-4 mt-md-0">
       <AdminFormMain v-if="item" :item="item" @remove-item="removeItem" />
@@ -69,7 +60,7 @@ export default {
   },
   computed: {
     groups() {
-      return this.$store.getters.group
+      return sortMethod(this.$store.getters.group, 'asc', 'position')
     },
     undergroups() {
       return this.$store.getters.undergroup
@@ -78,14 +69,21 @@ export default {
       return this.$store.getters.org
     },
     filteredUndergroups() {
-      return this.undergroups.filter(item => item.groupId === this.groupId)
+      return sortMethod(
+        this.undergroups.filter(item => item.groupId === this.groupId),
+        'asc',
+        'position'
+      )
     },
     filteredOrgs() {
-      return this.orgs.filter(item => item.undergroupId === this.undergroupId)
+      return sortMethod(
+        this.orgs.filter(item => item.undergroupId === this.undergroupId),
+        'asc',
+        'position'
+      )
     }
   },
   methods: {
-    sortMethod,
     setItem({ item }) {
       this.item = item
 

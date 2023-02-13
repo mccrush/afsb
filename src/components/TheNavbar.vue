@@ -1,17 +1,14 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
     <div class="container-fluid">
-      <a
-        class="navbar-brand d-flex align-items-end"
-        href="#"
-        @click="amountClicks"
-      >
+      <a class="navbar-brand d-flex align-items-end" href="#">
         <img
           src="/images/logo/logo.svg"
           alt="Logo"
           width="32"
           height="32"
           class="d-inline-block"
+          @click="amountClicks"
         />
         <span class="ms-2">Слава Бот</span>
       </a>

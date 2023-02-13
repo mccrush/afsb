@@ -12,7 +12,7 @@
     "
   >
     <div class="ms-2 me-auto">
-      <small>{{ item.title }}</small>
+      <small>[{{ item.position }}] {{ item.title }}</small>
     </div>
     <span class="badge bg-warning">{{ amountChilds }}</span>
   </li>
