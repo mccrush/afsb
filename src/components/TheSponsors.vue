@@ -34,6 +34,7 @@
             small
             lh-1
             w-25
+            p-0 p-sm-1
           "
           data-bs-toggle="modal"
           data-bs-target="#modalSponsor"
