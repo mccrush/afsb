@@ -17,7 +17,7 @@
         class="form-control form-control-sm"
         id="inputPhoneNumber"
         placeholder="Номер телефона"
-        v-model="item.phone"
+        v-model.trim="item.phone"
         @blur="$emit('save-phone')"
       />
     </div>
