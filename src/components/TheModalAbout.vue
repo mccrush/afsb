@@ -38,9 +38,9 @@
             >
             (полученные средства идут на оплату сервера и кофе для программиста)
           </p>
-          <p class="mb-0">
-            <code class="text-muted small"
-              >Версия: {{ version }}, дата релиза: {{ dateUpdate }}</code
+          <p class="text-center mb-0">
+            <code class="bg-dark rounded-2 text-light small p-1 ps-2 pe-2"
+              >Версия: {{ version }} от {{ dateUpdate }}</code
             >
           </p>
         </div>
