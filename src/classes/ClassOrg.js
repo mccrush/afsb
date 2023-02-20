@@ -15,4 +15,5 @@ export default class ClassOrg extends ClassBasic {
   schedule = []
   dateUpdate = ''
   authorUpdateId = ''
+  photo = ''
 }

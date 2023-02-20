@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fancyapps/ui': ^4.0.31
   '@popperjs/core': ^2.11.6
   '@vitejs/plugin-vue': ^4.0.0
   bootstrap: ^5.2.3
@@ -10,6 +11,7 @@ specifiers:
   vuex: ^4.1.0
 
 dependencies:
+  '@fancyapps/ui': 4.0.31
   '@popperjs/core': 2.11.6
   bootstrap: 5.2.3_@popperjs+core@2.11.6
   firebase: 9.17.1
@@ -242,6 +244,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@fancyapps/ui/4.0.31:
+    resolution: {integrity: sha512-D7+PMIloxSOFJyY+lXcNlVDhmssOmDT6PT5fqQUIiws2hT7PH29r0EKZxERmACSQpm6qrFkP7rSguzXWvRJduQ==}
+    dev: false
 
   /@firebase/analytics-compat/0.2.3_5qoz5voa527ucsvtk67mpz25ru:
     resolution: {integrity: sha512-HmvbB4GMgh8AUlIDIo/OuFENLCGRXxMvtOueK+m8+DcfqBvG+mkii0Mi9ovo0TnMM62cy3oBYG7PHdjIQNLSLA==}

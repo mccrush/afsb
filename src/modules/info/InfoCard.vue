@@ -26,6 +26,7 @@
         :item="item"
         @copy-in-bufer="copyInBufer"
       />
+      <CardPhoto v-if="item.photo" :photoName="item.photo" />
     </div>
     <div class="card-footer rounded-3 border-0 mt-2">
       <small class="text-muted"
@@ -48,6 +49,7 @@ import CardAddress from './components/card/CardAddress.vue'
 import CardPhone from './components/card/CardPhone.vue'
 import CardHours from './components/card/CardHours.vue'
 import CardSchedule from './components/card/CardSchedule.vue'
+import CardPhoto from './components/card/CardPhoto.vue'
 
 import ToastCopy from './components/interface/ToastCopy.vue'
 
@@ -57,6 +59,7 @@ export default {
     CardPhone,
     CardHours,
     CardSchedule,
+    CardPhoto,
     ToastCopy
   },
   props: {

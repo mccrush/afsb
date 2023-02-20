@@ -136,6 +136,21 @@
         <label for="inputPosition">Позиция</label>
       </div>
     </div>
+
+    <div class="col-12 mt-2">
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          id="inputPhotoname"
+          placeholder="Имя фото"
+          v-model="item.photo"
+          @blur="saveItem"
+        />
+        <label for="inputPhotoname">Имя фото</label>
+      </div>
+    </div>
+
     <div class="col-12 mt-2">
       <div class="form-floating">
         <textarea
