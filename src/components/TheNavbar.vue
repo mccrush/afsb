@@ -15,7 +15,18 @@
 
       <div>
         <BtnLogout v-if="currentUserId" class="" @click="logOut" />
-        <BtnAbout v-else data-bs-toggle="modal" data-bs-target="#modalAbout" />
+        <div v-else>
+          <BtnSearch
+            v-if="showMod === 'list'"
+            @click="$store.commit('setShowMod', { newMod: 'search' })"
+          />
+          <BtnShowList
+            v-if="showMod === 'search'"
+            @click="$store.commit('setShowMod', { newMod: 'list' })"
+          />
+          <BtnAbout data-bs-toggle="modal" data-bs-target="#modalAbout" />
+        </div>
+
         <!-- <button
           class="navbar-toggler"
           type="button"
@@ -47,6 +58,8 @@
 <script>
 import BtnLogout from './../ui/buttons/BtnLogout.vue'
 import BtnAbout from './../ui/buttons/BtnAbout.vue'
+import BtnSearch from './../ui/buttons/BtnSearch.vue'
+import BtnShowList from './../ui/buttons/BtnShowList.vue'
 
 import TheModalAbout from './TheModalAbout.vue'
 
@@ -54,11 +67,16 @@ export default {
   components: {
     BtnLogout,
     BtnAbout,
+    BtnSearch,
+    BtnShowList,
     TheModalAbout
   },
   computed: {
     currentUserId() {
       return this.$store.getters.currentUserId
+    },
+    showMod() {
+      return this.$store.getters.showMod
     }
   },
   methods: {
