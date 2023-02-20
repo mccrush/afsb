@@ -1,5 +1,5 @@
 import fireApp from './../../firebase'
-import { getFirestore, doc, setDoc, updateDoc, deleteDoc, collection, query, getDocs } from "firebase/firestore"
+import { getFirestore, doc, setDoc, updateDoc, deleteDoc, collection, query, orderBy, getDocs } from "firebase/firestore"
 const db = getFirestore(fireApp)
 
 export default {
@@ -68,7 +68,7 @@ export default {
     async getItems({ commit }, { type }) {
       commit('updateLoadingStatus', true)
       let tempArray = []
-      const q = query(collection(db, type))
+      const q = query(collection(db, type), orderBy("position"))
       const querySnapshot = await getDocs(q)
       querySnapshot.forEach((doc) => {
         tempArray.push(doc.data())

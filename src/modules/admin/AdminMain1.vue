@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import sortMethod from './../../methods/sortMethod'
+//import sortMethod from './../../methods/sortMethod'
 import { createItem } from './helpers/createItem'
 
 import AdminList from './AdminList.vue'
@@ -60,7 +60,7 @@ export default {
   },
   computed: {
     groups() {
-      return sortMethod(this.$store.getters.group, 'asc', 'position')
+      return this.$store.getters.group
     },
     undergroups() {
       return this.$store.getters.undergroup
@@ -69,18 +69,10 @@ export default {
       return this.$store.getters.org
     },
     filteredUndergroups() {
-      return sortMethod(
-        this.undergroups.filter(item => item.groupId === this.groupId),
-        'asc',
-        'position'
-      )
+      return this.undergroups.filter(item => item.groupId === this.groupId)
     },
     filteredOrgs() {
-      return sortMethod(
-        this.orgs.filter(item => item.undergroupId === this.undergroupId),
-        'asc',
-        'position'
-      )
+      return this.orgs.filter(item => item.undergroupId === this.undergroupId)
     }
   },
   methods: {

@@ -4,7 +4,7 @@
       <h6 class="text-center text-muted mb-2">Наши спонсоры</h6>
       <div class="list-group list-group-horizontal">
         <a
-          v-for="sponsor in sortedSponsors"
+          v-for="sponsor in sponsors"
           :key="sponsor.id"
           class="
             list-group-item list-group-item-action
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import sortMethod from './../methods/sortMethod'
+//import sortMethod from './../methods/sortMethod'
 import TheModalSponsor from './TheModalSponsor.vue'
 
 export default {
@@ -58,10 +58,10 @@ export default {
   computed: {
     sponsors() {
       return this.$store.getters.sponsor
-    },
-    sortedSponsors() {
-      return sortMethod(this.sponsors, 'asc', 'position')
     }
+    // sortedSponsors() {
+    //   return sortMethod(this.sponsors, 'asc', 'position')
+    // }
   }
 }
 </script>
