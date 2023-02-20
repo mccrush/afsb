@@ -7,6 +7,7 @@
             type="search"
             class="form-control"
             placeholder="Поиск"
+            maxlength="32"
             v-model.trim="searchFilter"
             @focus="showGroups()"
           />
