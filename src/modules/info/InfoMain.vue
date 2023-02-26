@@ -8,8 +8,8 @@
             class="form-control"
             placeholder="Поиск"
             maxlength="32"
-            v-model.trim="searchFilter"
             @focus="showGroups()"
+            @input="setSearchFilter($event)"
           />
         </div>
       </div>
@@ -120,7 +120,7 @@ export default {
             item.title.toUpperCase().includes(this.searchFilter.toUpperCase())
           )
         } else {
-          return this.orgs
+          return []
         }
       }
     },
@@ -147,6 +147,9 @@ export default {
     }
   },
   methods: {
+    setSearchFilter(event) {
+      this.searchFilter = event.target.value
+    },
     setItem({ item }) {
       if (item.type === 'group') {
         this.groupId = item.id
