@@ -120,7 +120,7 @@ export default {
             item.title.toUpperCase().includes(this.searchFilter.toUpperCase())
           )
         } else {
-          return []
+          return this.orgs
         }
       }
     },
