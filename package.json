@@ -1,8 +1,8 @@
 {
   "name": "afsb",
-  "version": "1.7.1",
-  "dateUpdate": "26.02.2023",
-  "description": "Первый Telegram бот города Славгорода",
+  "version": "1.7.2",
+  "dateUpdate": "24.03.2023",
+  "description": "Справочник города Славгорода",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
